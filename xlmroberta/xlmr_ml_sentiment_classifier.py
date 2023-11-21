@@ -54,7 +54,7 @@ def xlmr_train(model, device, train_dataloader, eval_dataloader, output_dir, num
             model.zero_grad()
 
         print("Evaluating the model on the evaluation split...")
-        metrics = bert_evaluate(model, eval_dataloader, device)
+        metrics = xlmr_evaluate(model, eval_dataloader, device)
         eval_metric_track.append(metrics)
         if save_best:
             if f1 < metrics['f1']:
