@@ -51,11 +51,9 @@ def prepare_data_for_language_modelling(data, labels, tokenizer, max_len, batch_
     truncated_sentences = [sentence[:(max_len - 2)] for sentence in tokenized_sentences]
     masked_sentences = []
     mlm_labels = []
-    i = 0 
     l = len(truncated_sentences)
     for sentence in truncated_sentences:
-        print(i, l)
-        i += 1
+        
         m_sent, mlm_l = random_word(sentence, tokenizer)
         masked_sentences.append(m_sent)
         mlm_labels.append(mlm_l)
